@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BootStrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
+
+    <!-- BootStrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/style.css">  
+    <link rel="stylesheet" href="style/escuro.css">  
+
+    <link rel="shortcut icon" href="images/remedio.png" type="image/x-icon">
+    
+    <title>AC - Node com Mongo</title>
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <img src="images/logoFarmacia.png" alt="logo" id="logoNormal">
+                <img src="images/logoFarmaciaBranco.png" alt="logoBranco" id="logoBranco">
+                <button id="btn-menu" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/verificarPacientes">Pacientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/verificarMedicamentos">Medicamentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/verificarVendas">Vendas</a>
+                        </li>
+                    </ul>
+                    <div id="modo-escuro">
+                        <input type="checkbox" class="checkbox" id="chk">
+
+                        <label class="label" for="chk" id="label-escuro">
+                            <i class="bi bi-moon-fill" id="sol"></i>
+                            <i class="bi bi-brightness-high-fill" id="lua"></i>
+                            <div class="ball"></div>
+                        </label>
+                    </div>
+                    <form class="d-flex" action="/dados" method="get" style="gap: 
+                    4px;">
+                        <input type="text" class="form-control" id="nomeMedicamento" name="nomeMedicamento" required placeholder="Pesquisar remédio:">
+                        <button type="submit" class="btn btn-danger" id="btn">PESQUISAR</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header><br>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h1 class="card-title text-center" style="font-weight: 520;">ATUALIZAR VENDA</h1><br>
+                        <form action="/atualizarvenda" method="post">
+                            <input type="hidden" id="id" name="id" value="${venda._id}">
+                            <div class="form-group">
+                                <label for="dataCompra">Data da Compra:</label>
+                                <input type="date" class="form-control" id="dataCompra" name="dataCompra" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nome">Nome Completo do Paciente:</label>
+                                <input type="text" class="form-control" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nomeMedicamento">Nome do Medicamento:</label>
+                                <input type="text" class="form-control" id="nomeMedicamento" name="nomeMedicamento" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantidade">Quantidade:</label>
+                                <input type="text" class="form-control" id="quantidade" name="quantidade" required>
+                            </div><br>
+                            <button type="submit" class="btn btn-danger btn-block">ATUALIZAR VENDA</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const vendaId = urlParams.get('id');
+    
+            if (vendaId) {
+                fetch(`/venda/${vendaId}`)
+                    .then(response => response.json())
+                    .then(venda => {
+                        document.getElementById('id').value = venda._id;
+                        document.getElementById('dataCompra').value = venda.dataCompra;
+                        document.getElementById('nome').value = venda.nome;
+                        document.getElementById('nomeMedicamento').value = venda.nomeMedicamento;
+                        document.getElementById('quantidade').value = venda.quantidade;
+                    })
+                    .catch(error => console.error('Erro ao carregar dados da venda:', error));
+            }
+        });
+    </script>
+
+</body>
+
+<!-- BootStrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<!-- FontAwesome Icons -->
+<script src="https://kit.fontawesome.com/4f654dde56.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/4f654dde56.js" crossorigin="anonymous"></script>
+
+<!-- JS -->
+<script defer src="js/temas.js"></script>
+<script defer src="js/header.js"></script>
+
+</html>

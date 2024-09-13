@@ -1,0 +1,74 @@
+.flex{
+    display: flex;
+}
+
+main{
+    color: #000;
+    font-family: "Poppins", sans-serif;
+}
+
+header{
+    padding: 10px 7%;
+}
+
+section.topo-do-site{
+    padding: 180px 8%;
+}
+
+.img-topo-site img{
+    width: 340px;
+}
+
+section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+}
+
+.topo-do-site h1{
+    font-size: 38px;
+    line-height: 50px;
+    font-weight: 650;
+}
+
+.topo-do-site .txt-topo-site p{
+    margin: 20px 0;
+}
+
+.topo-do-site .align{
+    display: flex;
+    gap: 8px;
+}
+
+@media screen and (max-width:1020px) {
+
+    section.topo-do-site{
+        padding: 10px 4%;
+    }
+
+    .img-topo-site img{
+        display: none;
+    }
+
+    section.topo-do-site .flex{
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+        gap: 90px;
+    }
+
+    .topo-do-site h1{
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .topo-do-site .txt-topo-site p{
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
+    .topo-do-site .align{
+        flex-direction: column;
+    }
+
+}
