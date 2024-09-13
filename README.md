@@ -1,6 +1,6 @@
 # MongoDB com NodeJS
 
-<img src="images/Capture.PNG">
+<img src="public/images/Capture.PNG">
 
 ## Olá! Criei esta API para uma avaliação escolar utilizando BootStrap e MongoDB que é um sistema de Farmácia e nela você pode:<br/>
 - Adicionar pacientes/medicamentos/vendas;<br/>
