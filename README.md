@@ -2,7 +2,7 @@
 
 <img src="public/images/Capture.PNG">
 
-## Olá! Criei esta API para uma avaliação escolar utilizando BootStrap e MongoDB que é um sistema de Farmácia e nela você pode:<br/>
+## Olá! Criei esta API com um Banco de Dados para uma avaliação escolar utilizando BootStrap, sendo ela um sistema de Farmácia e nela você pode:<br/>
 - Adicionar pacientes/medicamentos/vendas;<br/>
 - Excluir pacientes/medicamentos/vendas;<br/>
 - Pesquisar medicamentos por nome;<br/>
