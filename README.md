@@ -11,5 +11,5 @@
 - Você pode também pode mudar o tema de branco para escuro;<br/>
 - Entre outros;<br/>
 
-## Linguagens Utilizadas:
+## LINGUAGENS UTILIZADAS:
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,nodejs,mongo)](https://skillicons.dev)
